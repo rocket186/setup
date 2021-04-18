@@ -1,0 +1,18 @@
+APPLICATIONS:
+
+	fanny (unsupported :(
+	be focused
+	chrome
+	jupyter
+	sublime
+
+TERMINAL:
+
+	tmux
+	gdb (gef)
+	python (& packages)
+	gcc & gpp
+	git
+	htop
+	mysql
+	vim

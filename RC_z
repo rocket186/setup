@@ -1,0 +1,112 @@
+# BASHRC
+
+#defaults
+export BASH_SILENCE_DEPRECATION_WARNING=1 #mac only
+export TK_SILENCE_DEPRECATION=1 #tkinter only
+export EDITOR='vim'
+
+#PROMPT
+export PS1="\[\e[32m\]\u\[\e[m\]\[\e[37m\]::\[\e[31m\]\w\\[\e[37m\]\$ \[\e[32m\]"
+
+#l s setup
+alias ls='ls -l -G'
+
+#python shorthand
+alias python='python3'
+alias pip='pip3'
+alias jupyter='jupyter notebook'
+
+# Java Compile & Run
+jcar() { javac $1; java ${1%.*}; }
+export -f jcar
+
+----------------
+
+# VIMRC
+
+set number
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set ai
+set hlsearch
+set ruler
+set backspace=indent,eol,start
+set wrap
+set linebreak
+syntax on
+
+noremap £ #<CR>
+
+highlight Comment ctermfg=green
+
+"removes hightlight from search and replace
+noremap <silent> <C-l> :nohl<CR><C-l>
+
+#autocomplete
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+
+----------------
+
+# TMUX RC
+
+# Set tmux command mode to ` instead of Ctrl-b
+unbind C-b
+set -g prefix `
+
+# Switch to previous window using ``
+bind-key ` last-window
+
+# Use ` by pressing `-e
+bind-key e send-prefix
+
+# Set tmux colours to default terminal colours
+set -g default-terminal "screen-256color"
+
+# Set command layout to vim instead of emacs
+setw -g mode-keys vi
+
+# Start windows and panes at 1, not 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+----------------
+
+# GRUVBOX
+
+# find the installer on github
+
+call plug#begin('~/.vim/autoload')                                       
+                                                                         
+Plug 'morhetz/gruvbox'                                                   
+                                                                         
+call plug#end()                                                          
+                                                                         
+autocmd vimenter * ++nested colorscheme gruvbox                          
+                                                                         
+:set bg=dark 
+
+----------------
+
+# 'BUNTU RC
+
+#DashBar
+
+	#Install
+	sudo apt install dconf-tools
+
+	#Center & Shrink Dock
+	gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+	gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+	gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
+	gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
+	gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
+
+	#Reset Icon Size
+	gsettings reset org.gnome.shell.extensions.dash-to-dock dash-max-icon-size
+
