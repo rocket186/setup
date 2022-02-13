@@ -73,7 +73,7 @@ set -g default-terminal "screen-256color"
 # Format status bar
 set -g status-left '[#I] ' # default
 # set -g status-left ' ' # remove window number
-set -g status-right '#[fg=color0,bg=color2] #(hostname) #[fg=color0,bg=color2] %d/%m #[fg=color0,    bg=color2] %H:%M'
+set -g status-right '#[fg=color0,bg=color2] #(hostname) #[fg=color0,bg=color2] %d/%m #[fg=color0, bg=color2] %H:%M'
 
 # Set command layout to vim instead of emacs
 setw -g mode-keys vi
